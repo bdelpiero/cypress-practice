@@ -56,26 +56,21 @@ describe('registration', () => {
   // you everything you need to know for the `route` options, specifically
   // `method` and `url`. In addition to that, your route options will need a
   // `status` (try 500) and `response` (try {}).
+  it("should show an error message if there's an error registering", () => {
+    cy.server().route({
+      method: 'POST',
+      url: '/register',
+      status: 500,
+      response: {},
+    })
+    cy.visit('/register')
+      .getByText(/submit/i)
+      .click()
+      .getByText(/error/i)
+  })
 
-  // 🐨 now that you have a mock server with a route handler established, go
+  // 🐨 now that you have a mock server 'with a route handler established, go
   // ahead and navigate directly to the register page with `visit`,
   // click on the submit button, and verify that the proper text appears
   // 💰 You can use getByText and that will be sufficient for your assertion.
 })
-
-//////// Elaboration & Feedback /////////
-// When you've finished with the exercises:
-// 1. Copy the URL below into your browser and fill out the form
-// 2. remove the `.skip` from the test below
-// 3. Change submitted from `false` to `true`
-// 4. And you're all done!
-/*
-http://ws.kcd.im/?ws=cypress%20testing&e=04&em=
-*/
-describe('elaboration and feedback', () => {
-  it.skip('was submitted', () => {
-    const submitted = false // change this when you've submitted!
-    expect(submitted).to.be(true)
-  })
-})
-////////////////////////////////

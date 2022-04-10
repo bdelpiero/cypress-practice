@@ -35,11 +35,6 @@
     "netlify": "npm run test:run",
     "setup": "node ./scripts/setup && npm run validate && node ./scripts/autofill-feedback-email.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run test:run"
-    }
-  },
   "keywords": [],
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "GPL-3.0",
